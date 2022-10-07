@@ -12,28 +12,29 @@ class  App extends React.Component {
             "id" : 1,
             "name" : "Game of Thronos",
             "rating" : 9.5,
-            "overview" : "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
-            "imageUrl": "https://m.media-amazon.com/images/M/MV5BYTRiNDQwYzAtMzVlZS00NTI5LWJjYjUtMzkwNTUzMWMxZTllXkEyXkFqcGdeQXVyNDIzMzcwNjc@._V1_.jpg"
+            "overview" : "Lorem Ipsum is simply dummy text of the printing and typesetting industryee.",
+            "imageUrl": "https://images.fineartamerica.com/images/artworkimages/mediumlarge/1/jon-snow-alexios-tepetidis.jpg"
     
         },
         {
-            "id" : 1,
+            "id" : 2,
             "name" : "Game of Thronos",
-            "rating" : 9.5,
+            "rating" : 9.7,
             "overview" : "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
             "imageUrl": "https://m.media-amazon.com/images/M/MV5BYTRiNDQwYzAtMzVlZS00NTI5LWJjYjUtMzkwNTUzMWMxZTllXkEyXkFqcGdeQXVyNDIzMzcwNjc@._V1_.jpg"
             
     
         },
         {
-            "id" : 1,
+            "id" : 3,
             "name" : "Game of Thronos",
-            "rating" : 9.5,
+            "rating" : 9.9,
             "overview" : "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
-            "imageUrl": "https://m.media-amazon.com/images/M/MV5BYTRiNDQwYzAtMzVlZS00NTI5LWJjYjUtMzkwNTUzMWMxZTllXkEyXkFqcGdeQXVyNDIzMzcwNjc@._V1_.jpg"
+            "imageUrl": "https://i.pinimg.com/originals/5f/00/92/5f0092366945d9c728555ca325a32e25.jpg"
             
     
         }
+     
     ]
   }
 
@@ -51,7 +52,8 @@ class  App extends React.Component {
 
           </div>
           </div>
-          <MovieList/>
+          <MovieList
+           movies={this.state.movies}/>
           </div>
 
             </div>
