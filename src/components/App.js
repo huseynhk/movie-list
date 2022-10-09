@@ -7,67 +7,17 @@ import MovieList from './MovieList';
 class App extends React.Component {
 
   state = {
-    movies: [
-      {
-        "id": 1,
-        "name": "Game of Thronos",
-        "rating": 9.5,
-        "overview": "Lorem Ipsum is simply dummy text of the printing and typesetting industryee.",
-        "imageUrl": "https://images.fineartamerica.com/images/artworkimages/mediumlarge/1/jon-snow-alexios-tepetidis.jpg"
+    movies: [],
 
-      },
-      {
-        "id": 2,
-        "name": "Taxt Oyunlari",
-        "rating": 9.7,
-        "overview": "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
-        "imageUrl": "https://m.media-amazon.com/images/M/MV5BYTRiNDQwYzAtMzVlZS00NTI5LWJjYjUtMzkwNTUzMWMxZTllXkEyXkFqcGdeQXVyNDIzMzcwNjc@._V1_.jpg"
-
-
-      },
-      {
-        "id": 3,
-        "name": "Targeryan",
-        "rating": 9.9,
-        "overview": "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
-        "imageUrl": "https://i.pinimg.com/originals/5f/00/92/5f0092366945d9c728555ca325a32e25.jpg"
-
-
-      },
-      {
-        "id": 4,
-        "name": "John Snow",
-        "rating": 9.6,
-        "overview": "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
-        "imageUrl": "https://i.pinimg.com/originals/5f/00/92/5f0092366945d9c728555ca325a32e25.jpg"
-
-
-      },
-      {
-        "id": 5,
-        "name": "Nedd Stark",
-        "rating": 9.0,
-        "overview": "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
-        "imageUrl": "https://i.pinimg.com/originals/5f/00/92/5f0092366945d9c728555ca325a32e25.jpg"
-
-
-      },
-      {
-        "id": 6,
-        "name": "Night King",
-        "rating": 9.2,
-        "overview": "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
-        "imageUrl": "https://i.pinimg.com/originals/5f/00/92/5f0092366945d9c728555ca325a32e25.jpg"
-
-      }
-
-
-
-    ],
     searchQuery: ""
 
   }
-
+async componentDidMount(){
+  const baseURL = "http://localhost:3000/movies";
+  const response =await fetch(baseURL);
+  const data = await response.json();
+  this.setState({movies : data})
+}
 
   deleteMovie = (movie) => {
 
