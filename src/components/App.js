@@ -1,6 +1,7 @@
 import React from 'react';
 import SearchBar from './SearchBar';
 import MovieList from './MovieList';
+import axios from 'axios';
 
 
 
@@ -12,6 +13,8 @@ class App extends React.Component {
     searchQuery: ""
 
   }
+
+  //Fetch get
 async componentDidMount(){
   const baseURL = "http://localhost:3000/movies";
   const response =await fetch(baseURL);
@@ -19,20 +22,64 @@ async componentDidMount(){
   this.setState({movies : data})
 }
 
-  deleteMovie = (movie) => {
+// Axios Get
+// async componentDidMount(){
+//   const response = await axios.get("http://localhost:3000/movies");
+//   console.log(response)
+//   this.setState({movies : response.data})
+// }
 
-    const newMovieList = this.state.movies.filter(
 
-      m => m.id !== movie.id
-    )
+  // deleteMovie = (movie) => {
 
+  //   const newMovieList = this.state.movies.filter(
 
-    this.setState(state => ({
-      movies: newMovieList
-    }))
+  //     m => m.id !== movie.id
+  //   )
+  //   this.setState(state => ({
+  //     movies: newMovieList
+  //   }))
 
    
-    }
+  //   }
+
+
+  //Fetch Delete
+    // deleteMovie = async (movie) => {
+
+    //   const baseURL = `http://localhost:3000/movies/${movie.id}`
+
+    //   await fetch(baseURL,{
+    //     method : "DELETE"
+    //   })
+
+    //   const newMovieList = this.state.movies.filter(
+  
+    //     m => m.id !== movie.id
+    //   )
+    //   this.setState(state => ({
+    //     movies: newMovieList
+    //   }))
+  
+     
+    //   }
+
+    //AXios Delete
+
+    deleteMovie = async (movie) => {
+
+   axios.delete(`http://localhost:3000/movies/${movie.id}`)
+
+      const newMovieList = this.state.movies.filter(
+  
+        m => m.id !== movie.id
+      )
+      this.setState(state => ({
+        movies: newMovieList
+      }))
+  
+     
+      }
 
     searchMovie = (event) => {
       this.setState({ searchQuery: event.target.value })
